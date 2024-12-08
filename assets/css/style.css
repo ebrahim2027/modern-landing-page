@@ -1,0 +1,611 @@
+/* ======================= GOOGLE FONT ======================= */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --primary-color: #6960fc;
+  --secondary-color: #f0f6fb;
+  --primary-color-bg: #fff;
+  --title-color: #222222;
+  --text-color: #666666;
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.7rem;
+  --h2-font-size: 1.2rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-black: 900;
+
+  /*========== Margenes ==========*/
+  --m-0-25: 0.25rem;
+  --m-0-5: 0.5rem;
+  --m-0-75: 0.75rem;
+  --m-1: 1rem;
+  --m-1-5: 1.5rem;
+  --m-2: 2rem;
+  --m-2-5: 2.5rem;
+
+  /*========== Box Shadow and Border ==========*/
+  --shadow-1: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+  --border-1: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive typography */
+@media screen and (min-width: 992px) {
+  :root {
+    --biggest-font-size: 2.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background: var(--body-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+  font-family: var(--body-font);
+}
+button {
+  cursor: pointer;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.mobile-hidden {
+  display: none;
+}
+.bg-section {
+  background-color: var(--secondary-color);
+  padding: 1rem 0;
+}
+.top-title {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: var(--h2-font-size);
+}
+.title {
+  font-size: var(--h1-font-size);
+}
+.paragraph {
+  color: var(--body-color);
+  line-height: 1.5;
+  margin: 1rem 0px;
+  font-weight: 400;
+}
+.primary-btn {
+  padding: 0.6rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  letter-spacing: 0.5px;
+  border-radius: 100px;
+  transition: background 0.2s ease-in-out;
+}
+.seconday-btn {
+  position: relative;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.seconday-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: width 0.2s ease-in-out;
+}
+.seconday-btn:hover::before {
+  width: 100%;
+}
+.primary-btn:hover {
+  background-color: var(--title-color);
+}
+.img {
+  margin-bottom: 2rem;
+}
+.icon-box-container {
+  display: grid;
+  gap: 1.5rem;
+}
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+.icon-box .icon {
+  background-color: var(--primary-color);
+  color: #fff;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+.icon-box h3 {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
+}
+.icon-box .icon-box-desc {
+  font-size: 1.1rem;
+}
+
+.icon-box:hover .icon {
+  transform: translateX(30px);
+}
+.text-center {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.text-left {
+  text-align: left;
+  margin: 1.5rem 0;
+}
+/*=============== LAYOUT ===============*/
+.container {
+  width: 93%;
+  margin: auto;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+.section .img,
+.section .description {
+  flex: 1;
+}
+/*=============== HEADER ===============*/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+.logo {
+  min-width: 80px;
+}
+#menu-mobile-container .dark-part {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+#menu-mobile-container.active .dark-part {
+  opacity: 1;
+  pointer-events: auto;
+}
+nav.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  min-width: 300px;
+  box-shadow: var(--shadow-1);
+  padding: 2rem 0;
+  transform: translateX(-100%);
+  z-index: 2;
+  transition: opacity 0.2s ease-in-out;
+}
+#menu-mobile-container.active nav.menu {
+  transform: translateX(0%);
+}
+nav.mobile ul li a {
+  padding: 0.8rem 2rem;
+  display: block;
+  color: var(--title-color);
+  font-size: var(--h3-font-size);
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+nav.mobile ul li:hover a {
+  background: var(--primary-color);
+  color: #fff;
+}
+/*=============== HERO ===============*/
+/*=============== ABOUT ===============*/
+/*=============== PRODUCTS ===============*/
+.product-box-container {
+  display: grid;
+  gap: 2rem;
+}
+.product-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-1);
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  border-bottom: 3px solid var(--primary-color);
+}
+.product-box > * {
+  margin: 1.3rem 0;
+}
+.product-box h3 {
+  font-size: var(--h3-font-size);
+}
+.product-box p {
+  text-align: center;
+}
+
+/*=============== TESTIMONIAL ===============*/
+.testimonial-carousel {
+  margin: 2rem;
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding-bottom: 6rem;
+  overflow: hidden;
+}
+.testimonial-item {
+  flex: 1 0 100%;
+  text-align: center;
+  padding: 0 1rem;
+  transition: all 0.3s ease-in-out;
+}
+.testimonial-text {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+.testimonial-user h5 {
+  font-size: 1.1rem;
+  color: var(--title-color);
+}
+.testimonial-carousel .next,
+.testimonial-carousel .prev {
+  position: absolute;
+  bottom: 25px;
+  left: 40%;
+  transform: translateX(-50%);
+  font-size: 2.2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-1);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.testimonial-carousel .next {
+  left: 60%;
+}
+.testimonial-carousel .next:hover,
+.testimonial-carousel .prev:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+/*=============== TEAM MEMBERS ===============*/
+.team-container {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+.team-member img {
+  width: 100%;
+  display: block;
+}
+.team-container h4 {
+  font-size: var(--h2-font-size);
+}
+.team-member p {
+  font-size: 1rem;
+}
+.team-member .socials i {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1.7rem;
+  padding: 0.6rem;
+  border-radius: 50%;
+  margin: 0.3rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.team-member .socials i:hover {
+  transform: translateY(-10px);
+}
+.team-member-img {
+  position: relative;
+  cursor: pointer;
+}
+.team-member .socials-container {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.team-member .socials {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+}
+.team-member-img:hover .socials-container {
+  opacity: 1;
+  pointer-events: auto;
+}
+.team-member-img:hover .socials {
+  top: 50%;
+}
+/*=============== LATEST VIEW ===============*/
+/*=============== PARTENERS ===============*/
+.parteners-container {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.parteners-container img {
+  width: 150px;
+  height: 60px;
+  object-fit: contain;
+  align-self: center;
+}
+
+/*=============== BLOG ===============*/
+.blog-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+article.blog {
+  position: relative;
+  background-color: #fff;
+  box-shadow: var(--shadow-1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+article.blog .blog-img {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+article.blog .blog-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+article.blog:hover .blog-img img {
+  transform: scale(1.2);
+}
+article.blog .blog-desc {
+  padding: 1.5rem 2rem;
+}
+article.blog.blog a {
+  position: absolute;
+  inset: 0;
+}
+/*=============== CONTACT ===============*/
+form.contact {
+  width: 100%;
+}
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.input-container input,
+textarea {
+  width: 100%;
+  background-color: var(--secondary-color);
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  border-radius: 3px;
+  border: none;
+  margin: 0.5rem 0;
+  font-weight: 300;
+  border-radius: 3px;
+  outline: none;
+}
+.input-container textarea {
+  margin-bottom: 1rem;
+  height: 200px;
+}
+/*=============== FOOTER ===============*/
+.top-footer > * {
+  margin-bottom: 3rem;
+}
+.top-footer .title {
+  font-size: 1.3rem;
+}
+.address ul {
+  margin-top: 1.5rem;
+}
+.address ul li {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.address ul li i {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+.address ul li p {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.links .link .title {
+  margin-bottom: 3rem;
+}
+.link ul li a {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  padding: 0.4rem;
+  display: block;
+}
+.link ul li a:hover {
+  color: var(--primary-color);
+}
+.newslatter p {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.newslatter-input {
+  width: 100%;
+  display: flex;
+  background-color: var(--secondary-color);
+  height: 60px;
+  align-items: center;
+  padding: 0 1rem;
+  border-radius: 3px;
+  margin-top: 1.5rem;
+}
+.newslatter-input input {
+  background-color: transparent;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+.newslatter-input button {
+  font-size: 2rem;
+  background-color: transparent;
+  color: var(--primary-color);
+  line-height: 0;
+}
+.bottom-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.copyright a {
+  color: var(--primary-color);
+}
+.foot-social {
+  display: flex;
+  align-items: center;
+}
+.foot-social a {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  color: var(--body-color);
+}
+.foot-social a:hover {
+  color: var(--primary-color);
+}
+
+/*=============== GO-TO-UP BUTTON ===============*/
+#gotoup {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-size: 1.7rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  z-index: 999;
+  cursor: pointer;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, transform 0.4s ease-in-out;
+  transform: translateY(150%);
+}
+#gotoup.active {
+  transform: translate(0);
+  pointer-events: auto;
+}
+
+/*=============== ANIMATION ===============*/
+.pop {
+  animation: pop 5s linear infinite;
+}
+@keyframes pop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
